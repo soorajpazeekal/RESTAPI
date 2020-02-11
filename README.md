@@ -30,7 +30,7 @@
 `http://localhost:8000/api/create-user/`
 >content type = json
 #### Example Request:
-`{
+## `{
 	"username":"mytest",
 	"password":"mytest",
 	"staff":"True"
@@ -38,15 +38,16 @@
 > For creating a STAFF account must include "staff" json key in your request
 
 ### Register a normal user
-`{
+## `{
 	"username":"mytest",
 	"password":"mytest"
-}```
+}``
 > No need to send staff key in your request.
 
 ## Generating access token (JWT):
 ### API endpoint: 
 `http://localhost:8000/api/token-auth/`
+
 
 
 
