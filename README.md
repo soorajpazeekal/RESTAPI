@@ -8,6 +8,8 @@
 > Highly recommended to use a virtual environment and activate it.
 
 
+### Install requirements
+` pip install -r requirements.txt `
 ------------
 
 
