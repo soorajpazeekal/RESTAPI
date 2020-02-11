@@ -27,7 +27,7 @@
 `python manage.py migrate --run-syncdb`
 
 ## API Endpoint
-#### Ex: http://localhost:8000/api/{endpoint}
+#### Eg: http://localhost:8000/api/{endpoint}
 
 
 ------------
@@ -46,11 +46,11 @@
 >content type = json
 #### Example Request:
 ```json
-`{
+{
 	"username":"mytest",
 	"password":"mytest",
 	"staff":"True"
-}```
+}
 ```
 > For creating a STAFF account must include "staff" json key in your request
 
