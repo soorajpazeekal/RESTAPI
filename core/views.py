@@ -17,17 +17,17 @@ class UsercreationView(APIView):
         if 'staff' in db:
             user = User.objects.create_user(username=username,  email=None, password=password, is_staff=True)
             user.save()
-            return Response(data='account created. please generate access token on /token-auth/ endpoint', status=status.HTTP_200_OK)
+            return Response(data='account created. please generate access token on /api/token-auth/ endpoint', status=status.HTTP_200_OK)
         user = User.objects.create_user(username=username, email=None, password=password)   
         user.save() 
-        return Response(data='account created. please generate access token on /token-auth/ endpoint', status=status.HTTP_200_OK)
+        return Response(data='account created. please generate access token on /api/token-auth/ endpoint', status=status.HTTP_200_OK)
 
 
 class indexView(APIView):
     def get(self, request):
         permission_classes = (IsAuthenticated,)
         if request.user.is_authenticated: 
-            return Response('please generate access token from /token-auth/ endpoint')
+            return Response('please generate access token from /api/token-auth/ endpoint')
         return Response('create an account or register')
 
 
@@ -71,7 +71,7 @@ class EditluggageView(APIView):
             username = request.user.username
             user_objects = Luggage.objects.filter(created = username)
             serializer = LuggageSerializer(user_objects, many=True)
-            return Response(data=serializer.data)
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
         return Response(data='you are not staff')    
 
 
@@ -101,7 +101,7 @@ class OrderView(APIView):
         permission_classes = (IsAuthenticated,)
         db = request.data
         username = request.user.username
-        luggage_types = db['luggage_types']
+        luggage_types = db['Luggage_types']
         multipler = '0'
         for item in luggage_types:
             values = luggage_types[item]
@@ -121,4 +121,7 @@ class StafforderView(APIView):
             user_objects = Order.objects.all()
             serializer = OrderSerializer(user_objects, many=True)
             return Response(data=serializer.data, status=status.HTTP_200_OK)
-        return Response(data='This is not a staff account.')
+        username = request.user.username
+        user_objects = Order.objects.filter(user = username)
+        serializer = OrderSerializer(user_objects, many=True)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
