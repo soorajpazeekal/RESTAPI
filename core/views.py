@@ -83,7 +83,7 @@ class EditluggageView(APIView):
         status = db['status']
         user_objects = Luggage.objects.get(created = username)
         data = Luggage.objects.update(status=status)
-        return Response(data='ok')
+        return Response(data='Record updated successfully')
 
 
 class OrderView(APIView):
@@ -108,7 +108,7 @@ class OrderView(APIView):
             multipler = int(values)+int(multipler)
         data = Order.objects.create(user=username, luggage_types=luggage_types, amount=multipler)
         data.save()
-        return Response(data='OK')
+        return Response(data='Order Added successfully')
 
 
 
