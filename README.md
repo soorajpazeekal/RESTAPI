@@ -174,9 +174,26 @@ python manage.py runserver
 		"Duffel Bags":"1300"
 	},
 	"max_items":"3",
-	"status":"Open"  OR "status":"Close"
+	"status":"Open"
 }
 ```
+> #### OR
+```json
+{
+	"created":"username",
+	"Luggage_types":{
+		"Wheeled Duffels":"1200",
+		"Wheeled Luggage":"2000",
+		"Carry-On Luggage":"1500",
+		"Wheeled Backpacks":"2000",
+		"Duffel Bags":"1300"
+	},
+	"max_items":"3",
+	"status":"Close"  <-- changes
+}
+```
+
+
 
 ------------
 
