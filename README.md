@@ -4,31 +4,47 @@
 
 
 ### First clone this repository
-`git clone https://github.com/soorajpazeekal/RESTAPI.git`
+```shell
+git clone https://github.com/soorajpazeekal/RESTAPI.git
+```
 > Highly recommended to use a virtual environment and activate it.
 
 
 ### Install requirements
 
-`pip  install -r requirements.txt`
+```shell
+pip  install -r requirements.txt
+```
 
 ------------
 
 
 
 ### Make migrations
-`python manage.py makemigrations`
+```shell
+python manage.py makemigrations
+```
 
-`python manage.py migrate`
+```shell
+python manage.py migrate
+```
 
 
 ------------
+### Sync database with models:
+```shell
+python manage.py migrate --run-syncdb
+```
+
+------------
+
+### Run server:
+
+```python
+python manage.py runserver
+```
 
 
-
-### Troubleshoot errors in migrations
-> If facing some error like  'OperationalError No Such Table' while migrating:
-`python manage.py migrate --run-syncdb`
 
 ## API Endpoint
 #### Eg: http://localhost:8000/api/{endpoint}
